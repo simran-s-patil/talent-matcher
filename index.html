@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentMatch AI - Smart Recruitment Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+        <div class="floating-shape shape5"></div>
+        <div class="floating-shape shape6"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon" aria-hidden="true">🎯</span>
+                <span class="logo-text">TalentMatch AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Applicants</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">
+                    <span class="profile-avatar" title="HR Profile">HR</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Intelligent Talent Sourcing, Simplified.</h1>
+                <p class="hero-subtitle">Leverage **Flash 2.5 AI** to instantly match job requirements with a global pool of verified candidates.</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Active Candidates</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Placement Accuracy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30s</div>
+                        <div class="stat-label">Avg. Time to Match</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span class="icon" aria-hidden="true">📝</span>
+                    Define Role Requirements
+                </h2>
+                <p class="card-subtitle">Paste your detailed job description below for AI analysis.</p>
+            </div>
+            <div class="card-body">
+                <textarea id="jobDescription" class="job-textarea" placeholder="Example:
+
+Role: Senior Full Stack Developer (7+ years of experience required)
+
+Must-Haves:
+- Deep expertise in React, Node.js, and Microservices architecture.
+- Proven experience with AWS, Docker, and CI/CD pipelines.
+- Strong communication for cross-functional team collaboration.
+
+Nice-to-Haves:
+- Knowledge of GraphQL and Serverless functions.
+- Prior experience in a high-growth, remote-first startup setting."></textarea>
+                
+                <button onclick="analyzeJob()" class="btn-primary">
+                    <span class="btn-icon" aria-hidden="true">🧠</span>
+                    Analyze & Extract Key Skills
+                </button>
+            </div>
+        </div>
+
+        <div id="analysisResult" class="content-card hidden">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span class="icon" aria-hidden="true">✅</span>
+                    AI Requirements Extracted
+                </h2>
+                <p class="card-subtitle">Review the extracted skills and context before searching candidates.</p>
+            </div>
+            <div class="card-body">
+                <div id="skillsExtracted"></div>
+                <button onclick="findCandidates()" class="btn-primary" style="margin-top: 20px;">
+                    <span class="btn-icon" aria-hidden="true">🔍</span>
+                    Find Top Matching Candidates
+                </button>
+            </div>
+        </div>
+
+        <div id="candidatesSection" class="content-card hidden">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span class="icon" aria-hidden="true">🥇</span>
+                    Top Matched Candidates
+                </h2>
+                <p class="card-subtitle">Ranked by overall AI compatibility score against your job requirements.</p>
+            </div>
+            <div class="card-body">
+                <div id="candidatesList"></div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading-overlay hidden">
+            <div class="loading-card">
+                <div class="spinner"></div>
+                <p class="loading-text">AI is analyzing your requirements...</p>
+                <p class="loading-subtext">This may take a few seconds</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfile()" aria-label="Close Profile Modal">&times;</span>
+            <div id="profileContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
